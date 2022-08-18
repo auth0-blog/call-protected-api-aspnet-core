@@ -31,3 +31,8 @@ Check out the article [Call Protected APIs in ASP.NET Core](https://auth0.com/bl
 8. Point your browser to the [https://localhost:7095](https://localhost:7095) address. You should see a web page like the following:
 
 ![acme-homepage-login](acme-homepage-login.png)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fauth0-blog%2Fcall-protected-api-aspnet-core.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fauth0-blog%2Fcall-protected-api-aspnet-core?ref=badge_shield)
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fauth0-blog%2Fcall-protected-api-aspnet-core.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fauth0-blog%2Fcall-protected-api-aspnet-core?ref=badge_large)
