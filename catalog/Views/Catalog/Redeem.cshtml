@@ -1,0 +1,24 @@
+@model acme.Models.RedeemResponse
+@{
+    //ViewData["Title"] = "Redeem your Reward!";
+}
+
+<div class="row text-center">
+    <div class="col-md-12">
+        <div class="row">
+            <h2>@ViewData["Title"]</h2>
+            @if (@Model.Code == 0) {
+                <h3>Congratulations!</h3>
+                <div>You redeemed your reward!</div>
+                <div><img src="/images/@(Model.ProdId).png" alt="Disintegrating Pistol"></div>
+            }
+            
+            @if (@Model.Code > 0) {
+                <h3>Ops!</h3>
+                <div>You didn't redeem your reward.</div>
+                <div>Reason: @Model.Message</div>
+            }
+
+        </div>
+    </div>
+</div>
