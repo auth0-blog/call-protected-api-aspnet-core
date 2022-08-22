@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "RedeemApi": {
+    "RedemptionApi": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
