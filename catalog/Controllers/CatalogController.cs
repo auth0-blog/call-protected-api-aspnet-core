@@ -1,17 +1,18 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication;
-using System.Net.Http.Headers;
 using acme.Models;
 
 namespace acme.Controllers;
 
 public class CatalogController : Controller {
     private readonly ILogger<HomeController> _logger;
+    private readonly HttpClient _httpClient;
 
-    public CatalogController(ILogger<HomeController> logger)
+    public CatalogController(ILogger<HomeController> logger, HttpClient httpClient)
     {
         _logger = logger;
+        _httpClient = httpClient;
     }
 
     [Authorize]
@@ -23,19 +24,8 @@ public class CatalogController : Controller {
     [Authorize]
     public async Task<IActionResult> Redeem(string prodid)
     {
-        var accessToken = await HttpContext.GetTokenAsync("access_token");
-        RedeemResponse response;
-
-        using(var httpClient = new HttpClient())
-        {
-            string ApiUrl = "https://localhost:7151/redeem";
-            httpClient.DefaultRequestHeaders.Authorization 
-                         = new AuthenticationHeaderValue("Bearer", accessToken);
-            response = await httpClient.GetFromJsonAsync<RedeemResponse>(ApiUrl);
-        }
-
+        var response = await _httpClient.GetFromJsonAsync<RedeemResponse>("redeem");
         response.ProdId = prodid;
-
         return View(response);
     }
 }
